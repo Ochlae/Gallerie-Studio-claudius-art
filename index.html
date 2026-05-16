@@ -1,0 +1,170 @@
+
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Claudius Art Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+}
+#menu{
+position:absolute;
+top:20px;
+left:20px;
+z-index:999;
+background:rgba(0,0,0,0.7);
+padding:15px;
+border-radius:12px;
+color:white;
+}
+
+button{
+display:block;
+margin:10px 0;
+padding:10px;
+width:180px;
+background:#ff7a00;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0099cc;
+}
+</style>
+</head>
+
+<body>
+
+<div id="menu">
+
+<h2>CLAUDIUS ART STUDIO</h2>
+
+<button onclick="teleport(-12)">Les Abstraits</button>
+
+<button onclick="teleport(0)">Les Evasions</button>
+
+<button onclick="teleport(12)">Les Kalista</button>
+
+</div>
+
+<a-scene>
+
+<a-sky color="#111"></a-sky>
+
+<a-light
+type="ambient"
+intensity="0.8">
+</a-light>
+
+<a-light
+type="point"
+position="0 8 0"
+intensity="2">
+</a-light>
+
+<a-plane
+rotation="-90 0 0"
+width="50"
+height="50"
+color="#222">
+</a-plane>
+
+<!-- logo -->
+
+<a-image
+src="assets/claudius_art_studio_logo.png"
+position="0 6 -8"
+width="8"
+height="4">
+</a-image>
+
+<!-- salle abstraits -->
+
+<a-box
+position="-12 2 -15"
+depth="10"
+height="5"
+width="8"
+color="#222">
+</a-box>
+
+<a-text
+value="LES ABSTRAITS"
+position="-12 5 -10"
+align="center"
+color="#ff7a00">
+</a-text>
+
+<!-- salle evasions -->
+
+<a-box
+position="0 2 -15"
+depth="10"
+height="5"
+width="8"
+color="#333">
+</a-box>
+
+<a-text
+value="LES EVASIONS"
+position="0 5 -10"
+align="center"
+color="#66ccff">
+</a-text>
+
+<!-- salle kalista -->
+
+<a-box
+position="12 2 -15"
+depth="10"
+height="5"
+width="8"
+color="#444">
+</a-box>
+
+<a-text
+value="LES KALISTA"
+position="12 5 -10"
+align="center"
+color="#ff66aa">
+</a-text>
+
+<a-entity
+id="cameraRig"
+position="0 1.6 5">
+
+<a-camera wasd-controls look-controls>
+</a-camera>
+
+</a-entity>
+
+</a-scene>
+
+<script>
+
+function teleport(x){
+
+document
+.getElementById("cameraRig")
+.setAttribute(
+"position",
+`${x} 1.6 5`
+);
+
+}
+
+</script>
+
+</body>
+</html>
