@@ -1,11 +1,9 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>Claudius Art Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
 <style>
@@ -19,27 +17,21 @@ position:absolute;
 top:20px;
 left:20px;
 z-index:999;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.75);
 padding:15px;
-border-radius:12px;
+border-radius:15px;
 color:white;
 }
-
 button{
 display:block;
-margin:10px 0;
+margin-top:10px;
 padding:10px;
 width:180px;
 background:#ff7a00;
 color:white;
 border:none;
 border-radius:8px;
-font-size:16px;
 cursor:pointer;
-}
-
-button:hover{
-background:#0099cc;
 }
 </style>
 </head>
@@ -47,24 +39,47 @@ background:#0099cc;
 <body>
 
 <div id="menu">
-
 <h2>CLAUDIUS ART STUDIO</h2>
-
-<button onclick="teleport(-12)">Les Abstraits</button>
-
-<button onclick="teleport(0)">Les Evasions</button>
-
-<button onclick="teleport(12)">Les Kalista</button>
-
+<button onclick="teleportSalle()">
+Entrer : Les Abstraits
+</button>
 </div>
 
 <a-scene>
+
+<a-assets>
+
+<img id="logo"
+src="assets/claudius_art_studio_logo.png">
+
+<img id="amadeus"
+src="images/Les_abstraits/amadeus.jpg">
+
+<img id="ange"
+src="images/Les_abstraits/ange_bleu.jpg">
+
+<img id="arbre"
+src="images/Les_abstraits/arbre_des_fees.jpg">
+
+<img id="ballade"
+src="images/Les_abstraits/ballade2.jpg">
+
+<img id="melancolie"
+src="images/Les_abstraits/la_melancolie.jpg">
+
+<img id="vivalova"
+src="images/Les_abstraits/vivalova.jpg">
+
+<img id="voxys"
+src="images/Les_abstraits/voxys.jpg">
+
+</a-assets>
 
 <a-sky color="#111"></a-sky>
 
 <a-light
 type="ambient"
-intensity="0.8">
+intensity="1">
 </a-light>
 
 <a-light
@@ -75,76 +90,88 @@ intensity="2">
 
 <a-plane
 rotation="-90 0 0"
-width="50"
-height="50"
+width="80"
+height="80"
 color="#222">
 </a-plane>
 
-<!-- logo -->
-
 <a-image
-src="assets/claudius_art_studio_logo.png"
-position="0 6 -8"
+src="#logo"
+position="0 5 -6"
 width="8"
-height="4">
+height="3">
 </a-image>
 
-<!-- salle abstraits -->
-
 <a-box
-position="-12 2 -15"
-depth="10"
+position="0 2 -28"
+width="18"
 height="5"
-width="8"
-color="#222">
-</a-box>
-
-<a-text
-value="LES ABSTRAITS"
-position="-12 5 -10"
-align="center"
-color="#ff7a00">
-</a-text>
-
-<!-- salle evasions -->
-
-<a-box
-position="0 2 -15"
-depth="10"
-height="5"
-width="8"
+depth="22"
 color="#333">
 </a-box>
 
 <a-text
-value="LES EVASIONS"
-position="0 5 -10"
-align="center"
-color="#66ccff">
+value="LES ABSTRAITS"
+position="-2 5 -18"
+color="#ff7a00">
 </a-text>
 
-<!-- salle kalista -->
+<a-image src="#amadeus"
+position="-8 3 -22"
+rotation="0 90 0"
+width="3"
+height="3">
+</a-image>
 
-<a-box
-position="12 2 -15"
-depth="10"
-height="5"
-width="8"
-color="#444">
-</a-box>
+<a-image src="#ange"
+position="-8 3 -28"
+rotation="0 90 0"
+width="3"
+height="3">
+</a-image>
 
-<a-text
-value="LES KALISTA"
-position="12 5 -10"
-align="center"
-color="#ff66aa">
-</a-text>
+<a-image src="#arbre"
+position="-8 3 -34"
+rotation="0 90 0"
+width="3"
+height="3">
+</a-image>
+
+<a-image src="#ballade"
+position="8 3 -22"
+rotation="0 -90 0"
+width="3"
+height="3">
+</a-image>
+
+<a-image src="#melancolie"
+position="8 3 -28"
+rotation="0 -90 0"
+width="3"
+height="3">
+</a-image>
+
+<a-image src="#vivalova"
+position="8 3 -34"
+rotation="0 -90 0"
+width="3"
+height="3">
+</a-image>
+
+<a-image src="#voxys"
+position="0 3 -38"
+width="5"
+height="3">
+</a-image>
 
 <a-entity
 id="cameraRig"
-position="0 1.6 5">
+position="0 1.6 6">
 
-<a-camera wasd-controls look-controls>
+<a-camera
+look-controls
+wasd-controls>
+
 </a-camera>
 
 </a-entity>
@@ -152,18 +179,14 @@ position="0 1.6 5">
 </a-scene>
 
 <script>
-
-function teleport(x){
-
+function teleportSalle(){
 document
 .getElementById("cameraRig")
 .setAttribute(
 "position",
-`${x} 1.6 5`
+"0 1.6 -15"
 );
-
 }
-
 </script>
 
 </body>
